@@ -1,40 +1,52 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import moment from 'moment';
-import 'moment/locale/ko';
-import styled from 'styled-components';
+import * as React from 'react';
+import Days from './Days';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const StepThree = () => {
-  const [value, onChange] = useState(new Date());
-
+export default function SimpleAccordion() {
   return (
-    <StyledSection>
-      <div className="calendar-wrap">
-        <Calendar onChange={onChange} value={value} />
-        <div className="moment-box">
-          {moment(value).format('YYYY년 MM월 DD일')}
-        </div>
-      </div>
-    </StyledSection>
+    <div>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>날짜 선택</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <div>
+            <Days />
+          </div>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>시간 선택</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </div>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion disabled>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel3a-content"
+          id="panel3a-header"
+        >
+          <Typography>Disabled Accordion</Typography>
+        </AccordionSummary>
+      </Accordion>
+    </div>
   );
-};
-
-const StyledSection = styled.section`
-  width: 100%;
-
-  .calendar-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .moment-box {
-    width: 100%;
-    padding: 5px 0;
-    border: 1px solid #000;
-  }
-`;
-
-export default StepThree;
+}
