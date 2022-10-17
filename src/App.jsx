@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from './pages/calendar/Main';
+import Main from './pages/main/Main';
 import './App.css';
 import GlobalStyles from './GlobalStyles';
 

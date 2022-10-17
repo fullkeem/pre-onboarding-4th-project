@@ -5,8 +5,9 @@ import moment from 'moment';
 import 'moment/locale/ko';
 import styled from 'styled-components';
 
-const Main = () => {
+const StepThree = () => {
   const [value, onChange] = useState(new Date());
+
   return (
     <StyledSection>
       <div className="calendar-wrap">
@@ -36,4 +37,4 @@ const StyledSection = styled.section`
   }
 `;
 
-export default Main;
+export default StepThree;
