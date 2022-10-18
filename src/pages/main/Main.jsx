@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/images/logo.png';
 import StepOne from '../step_one/StepOne';
 import StepTwo from '../step_two/StepTwo';
 import StepThree from '../step_three/StepThree';
@@ -11,13 +11,27 @@ import styled from 'styled-components';
 
 const Main = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [canBook, setCanBook] = useState(false);
+  const [booking, setBooking] = useState([
+    {
+      booker: '',
+      phoneNumber: '',
+    },
+  ]);
 
   const steps = ['환자 정보', '진료 항목 선택', '예약날짜 및 시간 선택'];
 
   const getStepContent = (stepNumber) => {
     switch (stepNumber) {
       case 0:
-        return <StepOne />;
+        return (
+          <StepOne
+            canBook={canBook}
+            setCanBook={setCanBook}
+            booking={booking}
+            setBooking={setBooking}
+          />
+        );
       case 1:
         return <StepTwo />;
       case 2:
