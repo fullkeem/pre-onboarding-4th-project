@@ -38,15 +38,6 @@ export default function SimpleAccordion() {
           </div>
         </AccordionDetails>
       </Accordion>
-      <Accordion disabled>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography>Disabled Accordion</Typography>
-        </AccordionSummary>
-      </Accordion>
     </div>
   );
 }
