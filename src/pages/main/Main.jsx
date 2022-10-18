@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../../assets/logo.png';
 import StepOne from '../step_one/StepOne';
 import StepTwo from '../step_two/StepTwo';
 import StepThree from '../step_three/StepThree';
@@ -40,6 +41,9 @@ const Main = () => {
 
   return (
     <StyledStepper>
+      <header>
+        <img alt="로고" src={logo} className="logo" />
+      </header>
       <Stepper activeStep={activeStep}>
         {steps.map((label) => (
           <Step key={label}>
@@ -51,7 +55,7 @@ const Main = () => {
         {activeStep === steps.length ? (
           <div>
             <div>모든 스텝을 완료하였습니다.</div>
-            <div>
+            <div className="btn-box">
               <Button variant="contained" color="primary" onClick={handleReset}>
                 다시 시작하기
               </Button>
@@ -60,7 +64,7 @@ const Main = () => {
         ) : (
           <div>
             <div>{getStepContent(activeStep)}</div>
-            <div>
+            <div className="btn-box">
               <Button
                 style={{ marginRight: '10px' }}
                 variant="contained"
@@ -83,16 +87,30 @@ const Main = () => {
 
 const StyledStepper = styled.section`
   width: 100%;
-  border: 1px solid black;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 20px;
+
+  .logo {
+    margin-bottom: 60px;
+  }
 
   .css-m5vj9m-MuiStepper-root {
     margin: 5px;
-    border: 1px solid red;
 
     .css-1bw0nnu-MuiStep-root {
       margin: 5px;
-      border: 1px solid blue;
     }
+  }
+
+  .btn-box {
+    margin-top: 30px;
+  }
+
+  .css-sghohy-MuiButtonBase-root-MuiButton-root.Mui-disabled,
+  .css-sghohy-MuiButtonBase-root-MuiButton-root {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 `;
 
