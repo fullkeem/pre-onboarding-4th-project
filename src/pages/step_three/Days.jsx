@@ -6,11 +6,11 @@ import 'moment/locale/ko';
 import styled from 'styled-components';
 
 const Days = () => {
-  const [value, onChange] = useState(new Date());
+  const [value, setValue] = useState(new Date());
   return (
     <StyledSection>
       <div className="calendar-wrap">
-        <Calendar onChange={onChange} value={value} />
+        <Calendar onChange={setValue} value={value} />
         <div className="moment-box">
           {moment(value).format('YYYY년 MM월 DD일')}
         </div>
@@ -23,6 +23,7 @@ const StyledSection = styled.div`
   width: 100%;
 
   .calendar-wrap {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,6 +31,7 @@ const StyledSection = styled.div`
   }
 
   .moment-box {
+    margin-top: 20px;
     padding: 5px 0;
     border: 1px solid #000;
   }

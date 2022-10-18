@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Days from './Days';
+import Time from './Time';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -18,9 +19,7 @@ export default function SimpleAccordion() {
           <Typography>날짜 선택</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <div>
-            <Days />
-          </div>
+          <Days />
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -32,10 +31,7 @@ export default function SimpleAccordion() {
           <Typography>시간 선택</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </div>
+          <Time />
         </AccordionDetails>
       </Accordion>
     </div>
