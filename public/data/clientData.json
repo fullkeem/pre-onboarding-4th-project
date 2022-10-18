@@ -1,0 +1,12 @@
+{
+  "clientData": [
+    {
+      "id": 1,
+      "name": "김충만",
+      "phone": "0102297307",
+      "canBooking": "false",
+      "bookingDate": "",
+      "bookingTime": ""
+    }
+  ]
+}
