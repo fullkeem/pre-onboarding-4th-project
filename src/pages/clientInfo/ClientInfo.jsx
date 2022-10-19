@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const ClientInfo = ({ canBook, setCanBook, booking, setBooking }) => {
+const ClientInfo = ({ canBook, setCanBook, setBooking }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState();
 
@@ -13,14 +13,6 @@ const ClientInfo = ({ canBook, setCanBook, booking, setBooking }) => {
     setPhone(e.target.value);
   };
 
-  useEffect(() => {
-    fetch('/data/clientData.json')
-      .then((res) => res.json())
-      .then((data) => {
-        data;
-      });
-  }, []);
-
   const handleBooking = () => {
     if (name.length >= 2 && phone.length >= 10) {
       return setBooking({ booker: name, phoneNumber: phone }), setCanBook(true);
@@ -28,6 +20,10 @@ const ClientInfo = ({ canBook, setCanBook, booking, setBooking }) => {
       return setCanBook(false);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem('name', name), localStorage.setItem('phone', phone);
+  }, [name, phone]);
 
   return (
     <StyledOne>
