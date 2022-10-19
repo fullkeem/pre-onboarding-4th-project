@@ -6,11 +6,11 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Noto Sans KR', sans-serif;
-    /* background-image: url('../src/assets/background.jpg');
+    background-image: url('../src/assets/images/background.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed; */
+    background-attachment: fixed; 
   }
 
   * {
