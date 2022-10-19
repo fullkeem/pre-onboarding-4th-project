@@ -7,7 +7,14 @@ const Days = ({ setDateValue, dateValue }) => {
   return (
     <StyledSection>
       <div className="calendar-wrap">
-        <Calendar onChange={setDateValue} value={dateValue} />
+        <Calendar
+          next2Label={null}
+          prev2Label={null}
+          minDate={new Date()}
+          showNeighboringMonth={false}
+          onChange={setDateValue}
+          value={dateValue}
+        />
       </div>
     </StyledSection>
   );
@@ -22,6 +29,13 @@ const StyledSection = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  abbr {
+    text-decoration: none;
+  }
+
+  .react-calendar {
   }
 
   .moment-box {
