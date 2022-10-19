@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Days from './Days';
 import Time from './Time';
 import moment from 'moment';
 import 'moment/locale/ko';
-import { BsFillCalendarCheckFill, BsFillClockFill } from 'react-icons/bs';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { BsFillCalendarCheckFill, BsFillClockFill } from 'react-icons/bs';
 
-export default function SimpleAccordion() {
-  const [value, setValue] = useState(new Date());
+const BookingDate = ({
+  dateValue,
+  setDateValue,
+  selectDate,
+  setSelectDate,
+  selectTime,
+  setSelectTime,
+}) => {
+  setSelectDate(moment(dateValue).format('YYYY년 MM월 DD일'));
 
   return (
     <div>
@@ -23,11 +30,11 @@ export default function SimpleAccordion() {
         >
           <Typography>
             <BsFillCalendarCheckFill />{' '}
-            {moment(value).format('YYYY년 MM월 DD일')}
+            {moment(dateValue).format('YYYY년 MM월 DD일')}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Days value={value} setValue={setValue} />
+          <Days dateValue={dateValue} setDateValue={setDateValue} />
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -41,9 +48,15 @@ export default function SimpleAccordion() {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Time />
+          <Time
+            selectDate={selectDate}
+            selectTime={selectTime}
+            setSelectTime={setSelectTime}
+          />
         </AccordionDetails>
       </Accordion>
     </div>
   );
-}
+};
+
+export default BookingDate;

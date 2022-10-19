@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import styled from 'styled-components';
 
-const Days = ({ setValue, value }) => {
+const Days = ({ setDateValue, dateValue }) => {
   return (
     <StyledSection>
       <div className="calendar-wrap">
-        <Calendar onChange={setValue} value={value} />
+        <Calendar onChange={setDateValue} value={dateValue} />
       </div>
     </StyledSection>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const StepOne = ({ canBook, setCanBook, booking, setBooking }) => {
+const ClientInfo = ({ canBook, setCanBook, booking, setBooking }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState();
 
@@ -72,7 +72,7 @@ const StyledOne = styled.section`
     align-items: center;
 
     li {
-      margin: 10px 0px;
+      margin: 15px 0px;
       padding: 20px;
     }
 
@@ -101,4 +101,4 @@ const StyledOne = styled.section`
   }
 `;
 
-export default StepOne;
+export default ClientInfo;
