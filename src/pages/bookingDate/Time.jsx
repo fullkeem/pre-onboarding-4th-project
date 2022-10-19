@@ -5,6 +5,10 @@ const Time = ({ selectDate, selectTime, setSelectTime }) => {
   const [time, setTime] = useState([]);
 
   useEffect(() => {
+    localStorage.setItem('time', selectTime);
+  }, [selectTime]);
+
+  useEffect(() => {
     fetch('/data/timeSelect.json')
       .then((res) => res.json())
       .then((data) => {
