@@ -26,9 +26,9 @@ const App = () => {
     <BrowserRouter>
       <GlobalStyles />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/pre-onboarding-4th-project/" element={<Main />} />
         <Route
-          path="/booking"
+          path="/pre-onboarding-4th-project/booking"
           element={
             <Booking
               selectValue={selectValue}
@@ -46,7 +46,7 @@ const App = () => {
           }
         />
         <Route
-          path="/inquiry"
+          path="/pre-onboarding-4th-project/inquiry"
           element={<Inquiry handleReset={handleReset} />}
         />
       </Routes>

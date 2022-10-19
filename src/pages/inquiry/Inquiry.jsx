@@ -53,7 +53,7 @@ const Inquiry = ({ handleReset }) => {
       </section>
       <div className="go-back-box">
         <Link
-          to="/"
+          to="/pre-onboarding-4th-project/"
           className="go-back"
           onClick={() => {
             handleReset();

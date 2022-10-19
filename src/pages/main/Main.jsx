@@ -19,7 +19,7 @@ const Main = () => {
         type="button"
         className="to-booking"
         onClick={() => {
-          navigate('/booking');
+          navigate('/pre-onboarding-4th-project/booking');
           handleReload();
         }}
       >
@@ -29,7 +29,7 @@ const Main = () => {
         type="button"
         className="to-inquiry"
         onClick={() => {
-          navigate('/inquiry');
+          navigate('/pre-onboarding-4th-project/inquiry');
         }}
       >
         예약조회하기
