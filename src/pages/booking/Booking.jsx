@@ -12,10 +12,6 @@ import styled from 'styled-components';
 import { BiArrowBack } from 'react-icons/bi';
 
 const Booking = ({
-  activeStep,
-  setActiveStep,
-  canBook,
-  setCanBook,
   booking,
   setBooking,
   selectValue,
@@ -26,8 +22,11 @@ const Booking = ({
   setSelectDate,
   selectTime,
   setSelectTime,
+  handleReset,
 }) => {
   const navigate = useNavigate();
+  const [activeStep, setActiveStep] = useState(0);
+  const [canBook, setCanBook] = useState(false);
   const steps = ['환자 정보', '진료 항목 선택', '예약날짜 및 시간 선택'];
 
   const getStepContent = (stepNumber) => {
@@ -46,6 +45,7 @@ const Booking = ({
           <SelectMedical
             selectValue={selectValue}
             setSelectValue={setSelectValue}
+            setBooking={setBooking}
           />
         );
       case 2:
@@ -57,6 +57,7 @@ const Booking = ({
             setSelectDate={setSelectDate}
             selectTime={selectTime}
             setSelectTime={setSelectTime}
+            setBooking={setBooking}
           />
         );
       default:
@@ -72,7 +73,7 @@ const Booking = ({
     setActiveStep((preActiveStep) => preActiveStep - 1);
   };
 
-  const goToInquiry = () => {
+  const goToInquiry = (e) => {
     navigate('/inquiry');
   };
 
@@ -91,9 +92,15 @@ const Booking = ({
       <div className="content-box">
         {activeStep === steps.length ? (
           <div>
-            <div>모든 스텝을 완료하였습니다.</div>
+            <div>예약이 완료되었습니다.</div>
             <div className="btn-box">
-              <Button variant="contained" color="primary" onClick={goToInquiry}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                  goToInquiry();
+                }}
+              >
                 예약조회하기
               </Button>
             </div>
@@ -116,7 +123,13 @@ const Booking = ({
               </Button>
             </div>
             <div className="go-back-box">
-              <Link to="/" className="go-back">
+              <Link
+                to="/"
+                className="go-back"
+                onClick={() => {
+                  handleReset();
+                }}
+              >
                 <BiArrowBack />
               </Link>
             </div>

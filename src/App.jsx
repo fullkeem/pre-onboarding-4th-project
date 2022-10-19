@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/main/Main';
 import './App.css';
@@ -7,8 +7,6 @@ import Inquiry from './pages/inquiry/Inquiry';
 import Booking from './pages/booking/Booking';
 
 const App = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const [canBook, setCanBook] = useState(false);
   const [selectValue, setSelectValue] = useState('');
   const [dateValue, setDateValue] = useState(new Date());
   const [selectDate, setSelectDate] = useState('');
@@ -20,6 +18,10 @@ const App = () => {
     },
   ]);
 
+  const handleReset = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <BrowserRouter>
       <GlobalStyles />
@@ -29,10 +31,6 @@ const App = () => {
           path="/booking"
           element={
             <Booking
-              activeStep={activeStep}
-              setActiveStep={setActiveStep}
-              canBook={canBook}
-              setCanBook={setCanBook}
               selectValue={selectValue}
               setSelectValue={setSelectValue}
               dateValue={dateValue}
@@ -43,10 +41,14 @@ const App = () => {
               setSelectTime={setSelectTime}
               booking={booking}
               setBooking={setBooking}
+              handleReset={handleReset}
             />
           }
         />
-        <Route path="/inquiry" element={<Inquiry />} />
+        <Route
+          path="/inquiry"
+          element={<Inquiry handleReset={handleReset} />}
+        />
       </Routes>
     </BrowserRouter>
   );
