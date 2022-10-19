@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Days from './Days';
 import Time from './Time';
 import moment from 'moment';
@@ -19,6 +19,10 @@ const BookingDate = ({
   setSelectTime,
 }) => {
   setSelectDate(moment(dateValue).format('YYYY년 MM월 DD일'));
+
+  useEffect(() => {
+    localStorage.setItem('date', selectDate);
+  }, [selectDate]);
 
   return (
     <div>

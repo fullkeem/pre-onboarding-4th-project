@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const SelectMedical = ({ selectValue, setSelectValue }) => {
+  const [checkedMedical, setCheckedMedical] = useState('');
+
   const handleValue = (e) => {
-    setSelectValue(e.target.value);
+    setCheckedMedical(e.target.value);
+    setSelectValue(e.target.name);
   };
+
+  useEffect(() => {
+    localStorage.setItem('medical', selectValue);
+  }, [checkedMedical]);
 
   return (
     <StyledTwo>
@@ -15,8 +22,8 @@ const SelectMedical = ({ selectValue, setSelectValue }) => {
               type="radio"
               id="vaccine"
               value="vaccine"
-              name="medical"
-              checked={selectValue === 'vaccine'}
+              name="예방접종"
+              checked={checkedMedical === 'vaccine'}
               onChange={handleValue}
             />
             예방접종
@@ -28,8 +35,8 @@ const SelectMedical = ({ selectValue, setSelectValue }) => {
               type="radio"
               id="clinic"
               value="clinic"
-              name="medical"
-              checked={selectValue === 'clinic'}
+              name="일반진료"
+              checked={checkedMedical === 'clinic'}
               onChange={handleValue}
             />
             일반진료
@@ -41,15 +48,15 @@ const SelectMedical = ({ selectValue, setSelectValue }) => {
               type="radio"
               id="check-up"
               value="check-up"
-              name="medical"
-              checked={selectValue === 'check-up'}
+              name="건강검진"
+              checked={checkedMedical === 'check-up'}
               onChange={handleValue}
             />
             건강검진
           </label>
         </li>
       </ul>
-      {selectValue === 'check-up' && (
+      {selectValue === '건강검진' && (
         <div className="alert">
           <div className="red">알립니다!</div> 건강검진 전 6-8시간 금식이
           필요합니다. <br /> 예{')'} 오전 예약의 경우 전날 저녁 식사 후 내원전
