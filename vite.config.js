@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/pre-onboarding-4th-project',
+  base: '/pre-onboarding-4th-project/',
   plugins: [react()],
   server: {
     port: 3000,
