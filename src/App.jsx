@@ -23,12 +23,12 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/pre-onboarding-4th-project">
       <GlobalStyles />
       <Routes>
-        <Route path="/pre-onboarding-4th-project/" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route
-          path="/pre-onboarding-4th-project/booking"
+          path="/booking"
           element={
             <Booking
               selectValue={selectValue}
@@ -46,7 +46,7 @@ const App = () => {
           }
         />
         <Route
-          path="/pre-onboarding-4th-project/inquiry"
+          path="/inquiry"
           element={<Inquiry handleReset={handleReset} />}
         />
       </Routes>

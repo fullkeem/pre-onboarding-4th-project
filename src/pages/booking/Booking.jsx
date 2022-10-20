@@ -74,7 +74,7 @@ const Booking = ({
   };
 
   const goToInquiry = (e) => {
-    navigate('/pre-onboarding-4th-project/inquiry');
+    navigate('/inquiry');
   };
 
   return (
@@ -124,7 +124,7 @@ const Booking = ({
             </div>
             <div className="go-back-box">
               <Link
-                to="/pre-onboarding-4th-project/"
+                to="/"
                 className="go-back"
                 onClick={() => {
                   handleReset();
