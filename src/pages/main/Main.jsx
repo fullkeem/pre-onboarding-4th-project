@@ -6,9 +6,6 @@ import styled from 'styled-components';
 const Main = () => {
   const navigate = useNavigate();
 
-  const handleReload = () => {
-    window.location.reload();
-  };
 
   return (
     <StyledMain>
@@ -20,7 +17,6 @@ const Main = () => {
         className="to-booking"
         onClick={() => {
           navigate('/booking');
-          handleReload();
         }}
       >
         예약

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Button from '@mui/material/Button';
 import { BiArrowBack } from 'react-icons/bi';
 
-const Inquiry = ({ handleReset }) => {
+const Inquiry = () => {
   const navigate = useNavigate();
   const handleDelete = () => {
     localStorage.removeItem('name');
@@ -52,13 +52,7 @@ const Inquiry = ({ handleReset }) => {
         </ul>
       </section>
       <div className="go-back-box">
-        <Link
-          to="/"
-          className="go-back"
-          onClick={() => {
-            handleReset();
-          }}
-        >
+        <Link to="/" className="go-back">
           <BiArrowBack />
         </Link>
         <Button variant="contained" color="primary" onClick={handleDelete}>

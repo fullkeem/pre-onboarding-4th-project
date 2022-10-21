@@ -22,7 +22,6 @@ const Booking = ({
   setSelectDate,
   selectTime,
   setSelectTime,
-  handleReset,
 }) => {
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
@@ -123,13 +122,7 @@ const Booking = ({
               </Button>
             </div>
             <div className="go-back-box">
-              <Link
-                to="/"
-                className="go-back"
-                onClick={() => {
-                  handleReset();
-                }}
-              >
+              <Link to="/" className="go-back">
                 <BiArrowBack />
               </Link>
             </div>

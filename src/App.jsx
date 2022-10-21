@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/main/Main';
 import './App.css';
@@ -17,10 +17,6 @@ const App = () => {
       phoneNumber: '',
     },
   ]);
-
-  const handleReset = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <BrowserRouter basename="/pre-onboarding-4th-project">
@@ -41,14 +37,10 @@ const App = () => {
               setSelectTime={setSelectTime}
               booking={booking}
               setBooking={setBooking}
-              handleReset={handleReset}
             />
           }
         />
-        <Route
-          path="/inquiry"
-          element={<Inquiry handleReset={handleReset} />}
-        />
+        <Route path="/inquiry" element={<Inquiry />} />
       </Routes>
     </BrowserRouter>
   );
